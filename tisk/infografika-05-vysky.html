@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Infografika 5 — Jak vysoko je co</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Quicksand', Verdana, sans-serif; }
+
+    @media print {
+      @page { size: 420mm 594mm; margin: 0; }
+      body { margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .no-print { display: none; }
+    }
+
+    @media screen {
+      body { background: #e0e0e0; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+    }
+
+    .poster {
+      width: 420mm;
+      height: 594mm;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      padding: 15mm 20mm 15mm 55mm;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media screen {
+      .poster { box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+    }
+
+    .title {
+      text-align: center;
+      font-size: 18mm;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1mm;
+      color: #222;
+      padding: 5mm 0 8mm;
+      margin-right: -35mm;
+    }
+
+    .scale-area {
+      flex: 1;
+      position: relative;
+    }
+
+    .scale {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      top: 0;
+      width: 2mm;
+      background: #222;
+    }
+
+    /* Tick = 1000m interval. Total height of scale area fills available space.
+       We use percentage positioning: 0m = bottom (0%), 10000m = top (100%) */
+    .tick-line {
+      position: absolute;
+      left: -1mm;
+      width: 20mm;
+      height: 0;
+      border-top: 1.5mm solid #333;
+    }
+    .tick-line.minor {
+      width: 10mm;
+      border-top: 0.5mm dashed #aaa;
+    }
+
+    .tick-label {
+      position: absolute;
+      left: -45mm;
+      width: 40mm;
+      text-align: right;
+      font-size: 7mm;
+      font-weight: 700;
+      color: #333;
+      transform: translateY(-50%);
+    }
+    .tick-label .unit {
+      font-size: 4.5mm;
+      font-weight: 500;
+      color: #888;
+      margin-left: 1mm;
+    }
+
+    /* Mountain/object markers */
+    .marker {
+      position: absolute;
+      left: 25mm;
+      display: flex;
+      align-items: center;
+      gap: 4mm;
+      transform: translateY(-50%);
+    }
+    .marker .dot {
+      width: 10mm;
+      height: 10mm;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .marker .marker-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .marker .marker-name {
+      font-size: 7mm;
+      font-weight: 700;
+      color: #222;
+      white-space: nowrap;
+    }
+    .marker .marker-height {
+      font-size: 5mm;
+      font-weight: 500;
+      color: #666;
+    }
+
+    /* SVG silhouettes next to markers */
+    .marker svg {
+      width: 25mm;
+      height: 25mm;
+      flex-shrink: 0;
+    }
+
+    /* Airplane at top - special */
+    .marker.airplane {
+      left: 160mm;
+    }
+    .marker.airplane svg {
+      width: 40mm;
+      height: 20mm;
+    }
+
+    /* Color coding */
+    .bg-green { background: #2e7d32; }
+    .bg-dark-green { background: #1b5e20; }
+    .bg-gray { background: #757575; }
+    .bg-brown { background: #795548; }
+    .bg-blue { background: #1565c0; }
+    .bg-white { background: #fff; border: 1mm solid #222; }
+    .bg-red { background: #c62828; }
+
+    /* Bottom label */
+    .bottom-label {
+      position: absolute;
+      bottom: -2mm;
+      left: -45mm;
+      width: 40mm;
+      text-align: right;
+      font-size: 7mm;
+      font-weight: 700;
+      color: #333;
+    }
+    .bottom-unit {
+      position: absolute;
+      bottom: -2mm;
+      left: 5mm;
+      font-size: 5mm;
+      color: #888;
+    }
+
+    /* Key message */
+    .key-message {
+      position: absolute;
+      right: 15mm;
+      top: 3%;
+      width: 120mm;
+      text-align: center;
+      font-size: 6mm;
+      font-weight: 700;
+      color: #c62828;
+      line-height: 1.5;
+      border: 0.5mm solid #c62828;
+      border-radius: 5mm;
+      padding: 5mm;
+      background: #fff5f5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="poster">
+    <div class="title">Jak vysoko je co</div>
+
+    <div class="scale-area">
+      <div class="scale"></div>
+
+      <!-- 0m -->
+      <div class="bottom-label">0</div>
+      <div class="bottom-unit">m n. m. (hladina moře)</div>
+
+      <!-- Ticks 1000-10000 -->
+      <div class="tick-line" style="bottom: 10%;"><div class="tick-label">1 000<span class="unit">m</span></div></div>
+      <div class="tick-line minor" style="bottom: 5%;"></div>
+
+      <div class="tick-line" style="bottom: 20%;"><div class="tick-label">2 000<span class="unit">m</span></div></div>
+      <div class="tick-line minor" style="bottom: 15%;"></div>
+
+      <div class="tick-line" style="bottom: 30%;"><div class="tick-label">3 000<span class="unit">m</span></div></div>
+      <div class="tick-line minor" style="bottom: 25%;"></div>
+
+      <div class="tick-line" style="bottom: 40%;"><div class="tick-label">4 000<span class="unit">m</span></div></div>
+      <div class="tick-line minor" style="bottom: 35%;"></div>
+
+      <div class="tick-line" style="bottom: 50%;"><div class="tick-label">5 000<span class="unit">m</span></div></div>
+      <div class="tick-line minor" style="bottom: 45%;"></div>
+
+      <div class="tick-line" style="bottom: 60%;"><div class="tick-label">6 000<span class="unit">m</span></div></div>
+      <div class="tick-line minor" style="bottom: 55%;"></div>
+
+      <div class="tick-line" style="bottom: 70%;"><div class="tick-label">7 000<span class="unit">m</span></div></div>
+      <div class="tick-line minor" style="bottom: 65%;"></div>
+
+      <div class="tick-line" style="bottom: 80%;"><div class="tick-label">8 000<span class="unit">m</span></div></div>
+      <div class="tick-line minor" style="bottom: 75%;"></div>
+
+      <div class="tick-line" style="bottom: 90%;"><div class="tick-label">9 000<span class="unit">m</span></div></div>
+      <div class="tick-line minor" style="bottom: 85%;"></div>
+
+      <div class="tick-line" style="bottom: 100%;"><div class="tick-label">10 000<span class="unit">m</span></div></div>
+      <div class="tick-line minor" style="bottom: 95%;"></div>
+
+      <!-- Strom 10m = 0.1% -->
+      <div class="marker" style="bottom: 0.1%;">
+        <svg viewBox="0 0 100 100"><rect x="43" y="65" width="14" height="35" rx="2" fill="#795548"/><polygon points="50,5 80,40 72,40 88,65 12,65 28,40 20,40" fill="#2e7d32"/></svg>
+        <div class="dot bg-green"></div>
+        <div class="marker-info">
+          <span class="marker-name">Strom</span>
+          <span class="marker-height">10 m</span>
+        </div>
+      </div>
+
+      <!-- Panelák 30m = 0.3% -->
+      <div class="marker" style="bottom: 0.3%; left: 130mm;">
+        <svg viewBox="0 0 80 100"><rect x="10" y="5" width="60" height="90" rx="2" fill="#78909c"/><g fill="#ffecb3"><rect x="18" y="12" width="12" height="8" rx="1"/><rect x="34" y="12" width="12" height="8" rx="1"/><rect x="50" y="12" width="12" height="8" rx="1"/><rect x="18" y="26" width="12" height="8" rx="1"/><rect x="34" y="26" width="12" height="8" rx="1"/><rect x="50" y="26" width="12" height="8" rx="1"/><rect x="18" y="40" width="12" height="8" rx="1"/><rect x="34" y="40" width="12" height="8" rx="1"/><rect x="50" y="40" width="12" height="8" rx="1"/><rect x="18" y="54" width="12" height="8" rx="1"/><rect x="34" y="54" width="12" height="8" rx="1"/><rect x="50" y="54" width="12" height="8" rx="1"/><rect x="18" y="68" width="12" height="8" rx="1"/><rect x="34" y="68" width="12" height="8" rx="1"/><rect x="50" y="68" width="12" height="8" rx="1"/></g><rect x="32" y="80" width="16" height="15" rx="1" fill="#546e7a"/></svg>
+        <div class="dot bg-gray"></div>
+        <div class="marker-info">
+          <span class="marker-name">Panelák</span>
+          <span class="marker-height">30 m</span>
+        </div>
+      </div>
+
+      <!-- Lysá hora 1324m = 13.24% -->
+      <div class="marker" style="bottom: 13.24%;">
+        <div class="dot bg-dark-green"></div>
+        <div class="marker-info">
+          <span class="marker-name">Lysá hora</span>
+          <span class="marker-height">1 324 m · Beskydy</span>
+        </div>
+      </div>
+
+      <!-- Gerlachovský štít 2655m = 26.55% -->
+      <div class="marker" style="bottom: 26.55%;">
+        <div class="dot bg-brown"></div>
+        <div class="marker-info">
+          <span class="marker-name">Gerlachovský štít</span>
+          <span class="marker-height">2 655 m · Vysoké Tatry</span>
+        </div>
+      </div>
+
+      <!-- Mont Blanc 4810m = 48.10% -->
+      <div class="marker" style="bottom: 48.10%;">
+        <div class="dot bg-blue"></div>
+        <div class="marker-info">
+          <span class="marker-name">Mont Blanc</span>
+          <span class="marker-height">4 810 m · Alpy</span>
+        </div>
+      </div>
+
+      <!-- Everest 8849m = 88.49% -->
+      <div class="marker" style="bottom: 88.49%;">
+        <div class="dot bg-white"></div>
+        <div class="marker-info">
+          <span class="marker-name">Mount Everest</span>
+          <span class="marker-height">8 849 m · Himálaj</span>
+        </div>
+      </div>
+
+      <!-- Letadlo ~10000m = 100% -->
+      <div class="marker airplane" style="bottom: 97%;">
+        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="40" rx="75" ry="10" fill="#546e7a"/>
+          <ellipse cx="175" cy="40" rx="10" ry="7" fill="#607d8b"/>
+          <polygon points="70,30 120,30 110,5 65,5" fill="#78909c"/>
+          <polygon points="70,50 120,50 110,75 65,75" fill="#78909c"/>
+          <polygon points="25,30 40,30 35,12 20,12" fill="#78909c"/>
+          <polygon points="25,50 40,50 35,68 20,68" fill="#78909c"/>
+          <polygon points="25,40 40,40 30,15 20,15" fill="#90a4ae"/>
+          <g fill="#b3e5fc"><circle cx="80" cy="40" r="3"/><circle cx="92" cy="40" r="3"/><circle cx="104" cy="40" r="3"/><circle cx="116" cy="40" r="3"/><circle cx="128" cy="40" r="3"/><circle cx="140" cy="40" r="3"/><circle cx="152" cy="40" r="3"/></g>
+        </svg>
+        <div class="dot bg-red"></div>
+        <div class="marker-info">
+          <span class="marker-name">Letadlo</span>
+          <span class="marker-height">~10 000 m</span>
+        </div>
+      </div>
+
+      <!-- Key message -->
+      <div class="key-message">
+        Letadlo letí jen<br>kousek nad Everest!
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

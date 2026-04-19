@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Nomenklaturní kartičky zvířat — Montessori hory</title>
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    /* Landscape A6 kartičky: stránka A4 landscape, 2×2 grid */
+    @media print {
+      @page { size: A4 landscape; margin: 0; }
+    }
+
+    .page-landscape {
+      width: 297mm;
+      height: 210mm;
+      display: grid;
+      grid-template-columns: 148.5mm 148.5mm;
+      grid-template-rows: 105mm 105mm;
+      page-break-after: always;
+      overflow: hidden;
+    }
+    .page-landscape:last-child {
+      page-break-after: auto;
+    }
+
+    @media screen {
+      .page-landscape {
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      }
+    }
+
+    .card-l {
+      width: 148.5mm;
+      height: 105mm;
+      border: 0.3mm dashed #ccc;
+      border-radius: 5mm;
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+      font-family: 'Quicksand', 'Nunito', Verdana, Arial, sans-serif;
+    }
+
+    @media print {
+      .card-l { border: none; }
+    }
+
+    /* Obrazová kartička — foto vyplní celou plochu */
+    .card-l.animal-photo {
+      padding: 0;
+    }
+    .card-l.animal-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 5mm;
+    }
+
+    /* Jmenovka — velký text uprostřed */
+    .card-l.animal-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5mm;
+    }
+    .card-l.animal-label .label {
+      font-size: 14mm;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 0.5mm;
+      line-height: 1.3;
+      color: #222;
+    }
+
+    /* Kontrolní kartička — foto vlevo 2/3, jméno vpravo 1/3 */
+    .card-l.animal-control {
+      padding: 0;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+    }
+    .card-l.animal-control img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .card-l.animal-control .label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8mm;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3mm;
+      text-align: center;
+      background: #fff;
+      color: #222;
+      padding: 3mm;
+      line-height: 1.3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- STRANA 1: 4 obrazové kartičky (jen fotka)    -->
+  <!-- ============================================ -->
+  <div class="page-landscape">
+
+    <div class="card-l animal-photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Capreolus_capreolus_2_Jojo.jpg/960px-Capreolus_capreolus_2_Jojo.jpg" alt="Srnka">
+    </div>
+
+    <div class="card-l animal-photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Marmota_marmota_Alpes2.jpg" alt="Svišť horský">
+    </div>
+
+    <div class="card-l animal-photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_%28Switzerland%29_Photo_by_Giles_Laurent.jpg/960px-016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_%28Switzerland%29_Photo_by_Giles_Laurent.jpg" alt="Orel skalní">
+    </div>
+
+    <div class="card-l animal-photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Bos_grunniens_at_Yundrok_Yumtso_Lake.jpg/960px-Bos_grunniens_at_Yundrok_Yumtso_Lake.jpg" alt="Jak">
+    </div>
+
+  </div>
+
+  <!-- ============================================ -->
+  <!-- STRANA 2: 1 obrazová (leopard) + 3 jmenovky -->
+  <!-- ============================================ -->
+  <div class="page-landscape">
+
+    <div class="card-l animal-photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Snow_Leopard_Running_%2827790729228%29.jpg/960px-Snow_Leopard_Running_%2827790729228%29.jpg" alt="Sněžný leopard">
+    </div>
+
+    <div class="card-l animal-label">
+      <div class="label">Srnka</div>
+    </div>
+
+    <div class="card-l animal-label">
+      <div class="label">Svišť</div>
+    </div>
+
+    <div class="card-l animal-label">
+      <div class="label">Orel skalní</div>
+    </div>
+
+  </div>
+
+  <!-- ============================================ -->
+  <!-- STRANA 3: 2 jmenovky + 2 kontrolní          -->
+  <!-- ============================================ -->
+  <div class="page-landscape">
+
+    <div class="card-l animal-label">
+      <div class="label">Jak</div>
+    </div>
+
+    <div class="card-l animal-label">
+      <div class="label">Sněžný leopard</div>
+    </div>
+
+    <div class="card-l animal-control">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Capreolus_capreolus_2_Jojo.jpg/960px-Capreolus_capreolus_2_Jojo.jpg" alt="Srnka">
+      <div class="label">Srnka</div>
+    </div>
+
+    <div class="card-l animal-control">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Marmota_marmota_Alpes2.jpg" alt="Svišť">
+      <div class="label">Svišť</div>
+    </div>
+
+  </div>
+
+  <!-- ============================================ -->
+  <!-- STRANA 4: 3 kontrolní + 1 prázdná           -->
+  <!-- ============================================ -->
+  <div class="page-landscape">
+
+    <div class="card-l animal-control">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_%28Switzerland%29_Photo_by_Giles_Laurent.jpg/960px-016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_%28Switzerland%29_Photo_by_Giles_Laurent.jpg" alt="Orel skalní">
+      <div class="label">Orel skalní</div>
+    </div>
+
+    <div class="card-l animal-control">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Bos_grunniens_at_Yundrok_Yumtso_Lake.jpg/960px-Bos_grunniens_at_Yundrok_Yumtso_Lake.jpg" alt="Jak">
+      <div class="label">Jak</div>
+    </div>
+
+    <div class="card-l animal-control">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Snow_Leopard_Running_%2827790729228%29.jpg/960px-Snow_Leopard_Running_%2827790729228%29.jpg" alt="Sněžný leopard">
+      <div class="label">Sněžný leopard</div>
+    </div>
+
+    <div class="card-l" style="border: none;"></div>
+
+  </div>
+
+</body>
+</html>

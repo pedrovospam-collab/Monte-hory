@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Infografika 2 — Hory od nás do světa</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Quicksand', Verdana, sans-serif; }
+
+    @media print {
+      @page { size: 594mm 420mm; margin: 0; }
+      body { margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    @media screen {
+      body { background: #e0e0e0; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+    }
+
+    .poster {
+      width: 594mm;
+      height: 420mm;
+      background: #fff;
+      padding: 15mm 15mm;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media screen {
+      .poster { box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+    }
+
+    .title {
+      text-align: center;
+      font-size: 18mm;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1mm;
+      color: #222;
+      padding-bottom: 8mm;
+    }
+
+    .mountains-row {
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      padding-bottom: 3mm;
+    }
+
+    .mountain {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .mountain svg {
+      display: block;
+    }
+
+    .mountain .label {
+      text-align: center;
+      padding-top: 3mm;
+    }
+    .mountain .label .name {
+      font-size: 7mm;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #222;
+    }
+    .mountain .label .height {
+      font-size: 5mm;
+      font-weight: 500;
+      color: #666;
+      margin-top: 1mm;
+    }
+    .mountain .label .country {
+      font-size: 4mm;
+      font-weight: 500;
+      color: #aaa;
+      margin-top: 1mm;
+    }
+
+    .arrow-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5mm 0;
+      gap: 4mm;
+      flex-wrap: wrap;
+    }
+    .arrow-row .arrow {
+      font-size: 8mm;
+      color: #bbb;
+    }
+    .arrow-row .region {
+      font-size: 4.5mm;
+      font-weight: 700;
+      color: #555;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="poster">
+    <div class="title">Hory od nás do světa</div>
+
+    <div class="mountains-row">
+
+      <!-- 1. Beskydy: 1324m → 250 * 1324/8849 = 37mm -->
+      <div class="mountain">
+        <svg width="80mm" height="37mm" viewBox="0 0 320 148">
+          <polygon points="160,0 320,148 0,148" fill="#2e7d32"/>
+          <polygon points="160,0 240,90 80,90" fill="#388e3c" opacity="0.5"/>
+        </svg>
+        <div class="label">
+          <div class="name">Beskydy</div>
+          <div class="height">1 324 m</div>
+          <div class="country">Česko</div>
+        </div>
+      </div>
+
+      <!-- 2. Vysoké Tatry: 2655m → 250 * 2655/8849 = 75mm -->
+      <div class="mountain">
+        <svg width="85mm" height="75mm" viewBox="0 0 340 300">
+          <polygon points="170,0 340,300 0,300" fill="#78909c"/>
+          <polygon points="170,0 260,180 80,180" fill="#90a4ae" opacity="0.5"/>
+          <polygon points="140,25 170,0 200,25 185,23 170,8 155,23" fill="#fff" opacity="0.7"/>
+        </svg>
+        <div class="label">
+          <div class="name">Vysoké Tatry</div>
+          <div class="height">2 655 m</div>
+          <div class="country">Slovensko</div>
+        </div>
+      </div>
+
+      <!-- 3. Alpy: 4810m → 250 * 4810/8849 = 136mm -->
+      <div class="mountain">
+        <svg width="90mm" height="136mm" viewBox="0 0 360 544">
+          <polygon points="180,0 360,544 0,544" fill="#78909c"/>
+          <polygon points="160,25 180,0 200,25 260,180 100,180" fill="#b0bec5" opacity="0.4"/>
+          <polygon points="155,35 180,0 205,35 190,30 180,12 170,30" fill="#fff" opacity="0.8"/>
+          <polygon points="140,55 180,0 220,55" fill="#fff" opacity="0.3"/>
+        </svg>
+        <div class="label">
+          <div class="name">Alpy</div>
+          <div class="height">4 810 m</div>
+          <div class="country">Francie · Itálie</div>
+        </div>
+      </div>
+
+      <!-- 4. Kilimandžáro: 5895m → 250 * 5895/8849 = 167mm -->
+      <div class="mountain">
+        <svg width="95mm" height="167mm" viewBox="0 0 380 668">
+          <polygon points="190,0 380,668 0,668" fill="#8d6e63"/>
+          <polygon points="150,60 190,0 230,60 270,200 110,200" fill="#a1887f" opacity="0.4"/>
+          <polygon points="165,40 190,0 215,40 200,35 190,15 180,35" fill="#fff" opacity="0.6"/>
+          <!-- Sníh na vrcholu -->
+          <polygon points="175,50 190,0 205,50" fill="#fff" opacity="0.5"/>
+        </svg>
+        <div class="label">
+          <div class="name">Kilimandžáro</div>
+          <div class="height">5 895 m</div>
+          <div class="country">Tanzanie</div>
+        </div>
+      </div>
+
+      <!-- 5. Andy: Aconcagua 6961m → 250 * 6961/8849 = 197mm -->
+      <div class="mountain">
+        <svg width="100mm" height="197mm" viewBox="0 0 400 788">
+          <polygon points="200,0 400,788 0,788" fill="#6d4c41"/>
+          <polygon points="170,40 200,0 230,40 300,250 100,250" fill="#8d6e63" opacity="0.4"/>
+          <polygon points="180,30 200,0 220,30 210,27 200,10 190,27" fill="#fff" opacity="0.8"/>
+          <polygon points="165,55 200,0 235,55" fill="#fff" opacity="0.4"/>
+          <polygon points="150,80 200,0 250,80" fill="#e3f2fd" opacity="0.2"/>
+        </svg>
+        <div class="label">
+          <div class="name">Andy</div>
+          <div class="height">6 961 m</div>
+          <div class="country">Argentina</div>
+        </div>
+      </div>
+
+      <!-- 6. Himálaj: Everest 8849m → 250mm -->
+      <div class="mountain">
+        <svg width="105mm" height="250mm" viewBox="0 0 420 1000">
+          <polygon points="210,0 420,1000 0,1000" fill="#546e7a"/>
+          <polygon points="190,30 210,0 230,30 310,250 110,250" fill="#78909c" opacity="0.4"/>
+          <polygon points="190,40 210,0 230,40 220,37 210,15 200,37" fill="#fff" opacity="0.9"/>
+          <polygon points="175,65 210,0 245,65" fill="#fff" opacity="0.4"/>
+          <polygon points="160,100 210,0 260,100" fill="#e3f2fd" opacity="0.2"/>
+        </svg>
+        <div class="label">
+          <div class="name">Himálaj</div>
+          <div class="height">8 849 m</div>
+          <div class="country">Nepál · Čína</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrow-row">
+      <span class="region">Česko</span>
+      <span class="arrow">→</span>
+      <span class="region">Slovensko</span>
+      <span class="arrow">→</span>
+      <span class="region">Francie</span>
+      <span class="arrow">→</span>
+      <span class="region">Tanzanie</span>
+      <span class="arrow">→</span>
+      <span class="region">Argentina</span>
+      <span class="arrow">→</span>
+      <span class="region">Nepál</span>
+    </div>
+  </div>
+
+</body>
+</html>

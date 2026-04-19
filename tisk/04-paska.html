@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Výšková páska 0–9000 m — Montessori hory</title>
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+    @media print {
+      @page {
+        size: A3 portrait;
+        margin: 10mm 15mm;
+      }
+      body { margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .strip-instructions { display: none; }
+    }
+
+    @media screen {
+      body {
+        background: #e0e0e0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        gap: 20px;
+      }
+      .strip-page {
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      }
+    }
+
+    .strip-instructions {
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 15px;
+      background: #fff3e0;
+      border-radius: 8px;
+      border: 1px solid #ffcc80;
+    }
+    .strip-instructions h2 { margin-bottom: 8px; font-size: 18px; }
+
+    .strip-page {
+      width: 297mm;
+      height: 420mm;
+      padding: 10mm 20mm;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      page-break-after: always;
+    }
+    .strip-page:last-of-type {
+      page-break-after: auto;
+    }
+
+    /* Horní strana se zarovná dolů (navazuje na spodní) */
+    .strip-page.top-half {
+      align-items: flex-end;
+    }
+    /* Spodní strana se zarovná dolů (0 je dole) */
+    .strip-page.bottom-half {
+      align-items: flex-end;
+    }
+
+    .strip {
+      position: relative;
+      border-left: 2mm solid #222;
+      margin-left: 22mm;
+      width: 220mm;
+    }
+
+    .tick {
+      position: relative;
+      height: 65mm;
+      border-bottom: 1.5mm solid #222;
+    }
+
+    .tick:first-child {
+      border-top: 1.5mm solid #222;
+    }
+
+    .tick-label {
+      position: absolute;
+      bottom: -4mm;
+      left: -22mm;
+      font-size: 6mm;
+      font-weight: 700;
+      font-family: 'Quicksand', Verdana, sans-serif;
+      text-align: right;
+      width: 18mm;
+    }
+
+    .tick-label-unit {
+      position: absolute;
+      bottom: -4mm;
+      left: 4mm;
+      font-size: 3.5mm;
+      font-weight: 500;
+      color: #888;
+      font-family: 'Quicksand', Verdana, sans-serif;
+    }
+
+    .tick-500 {
+      position: absolute;
+      top: 50%;
+      left: -1mm;
+      width: 15mm;
+      height: 0;
+      border-top: 0.4mm dashed #aaa;
+    }
+
+    .tick-mark {
+      position: absolute;
+      left: 20mm;
+      display: flex;
+      align-items: center;
+      gap: 3mm;
+    }
+
+    .tick-mark .mark-dot {
+      width: 7mm;
+      height: 7mm;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .tick-mark .mark-label {
+      font-size: 4.5mm;
+      font-weight: 700;
+      font-family: 'Quicksand', Verdana, sans-serif;
+      color: #333;
+      white-space: nowrap;
+    }
+
+    .tick-mark .mark-height {
+      font-size: 3.5mm;
+      font-weight: 500;
+      color: #777;
+      font-family: 'Quicksand', Verdana, sans-serif;
+    }
+
+    /* Návod na slepení */
+    .splice-note {
+      position: absolute;
+      top: -8mm;
+      left: 0;
+      font-size: 3.5mm;
+      color: #999;
+      font-family: 'Quicksand', Verdana, sans-serif;
+    }
+    .splice-note-bottom {
+      position: absolute;
+      bottom: -8mm;
+      left: 0;
+      font-size: 3.5mm;
+      color: #999;
+      font-family: 'Quicksand', Verdana, sans-serif;
+    }
+
+    .zero-line {
+      position: relative;
+      height: 0;
+    }
+
+    .zero-label {
+      position: absolute;
+      top: -4mm;
+      left: -22mm;
+      font-size: 6mm;
+      font-weight: 700;
+      font-family: 'Quicksand', Verdana, sans-serif;
+      text-align: right;
+      width: 18mm;
+    }
+
+    .zero-unit {
+      position: absolute;
+      top: -3.5mm;
+      left: 4mm;
+      font-size: 3.5mm;
+      color: #888;
+      font-family: 'Quicksand', Verdana, sans-serif;
+    }
+
+    .bg-green { background: #2e7d32; }
+    .bg-dark-green { background: #1b5e20; }
+    .bg-gray { background: #757575; }
+    .bg-brown { background: #795548; }
+    .bg-blue { background: #1565c0; }
+    .bg-white { background: #fff; border: 0.5mm solid #222; }
+    .bg-red { background: #c62828; }
+  </style>
+</head>
+<body>
+
+  <div class="strip-instructions">
+    <h2>Výšková páska 0–9000 m</h2>
+    <p>Tiskne se na <strong>2 listy A3 na výšku</strong>. Slepte k sobě — strana 1 dole (0–5000 m), strana 2 nahoře (5000–9000 m).</p>
+    <p>Připevněte svisle na zeď, nula u podlahy. Celková výška pásky: cca 72 cm.</p>
+  </div>
+
+  <!-- ===== STRANA 1: horní polovina 5000–9000 m ===== -->
+  <div class="strip-page top-half">
+    <div class="strip">
+      <div class="splice-note-bottom">&#9986; slepte sem spodní list (5000 m)</div>
+
+      <!-- 9 000 m -->
+      <div class="tick">
+        <div class="tick-label">9 000</div>
+        <div class="tick-label-unit">m</div>
+        <div class="tick-500"></div>
+        <!-- Letadlo ~10 000 m — nad páskou -->
+        <div class="tick-mark" style="top: -12mm; left: 100mm;">
+          <div class="mark-dot bg-red"></div>
+          <div>
+            <span class="mark-label">Letadlo</span>
+            <span class="mark-height">~10 000 m</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 000 m -->
+      <div class="tick">
+        <div class="tick-label">8 000</div>
+        <div class="tick-label-unit">m</div>
+        <div class="tick-500"></div>
+        <!-- Everest 8849 m → 849/1000 × 65 = 55.2mm -->
+        <div class="tick-mark" style="bottom: 55.2mm;">
+          <div class="mark-dot bg-white"></div>
+          <div>
+            <span class="mark-label">Mount Everest</span>
+            <span class="mark-height">8 849 m</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 000 m -->
+      <div class="tick">
+        <div class="tick-label">7 000</div>
+        <div class="tick-label-unit">m</div>
+        <div class="tick-500"></div>
+      </div>
+
+      <!-- 6 000 m -->
+      <div class="tick">
+        <div class="tick-label">6 000</div>
+        <div class="tick-label-unit">m</div>
+        <div class="tick-500"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== STRANA 2: spodní polovina 0–5000 m ===== -->
+  <div class="strip-page bottom-half">
+    <div class="strip">
+      <div class="splice-note">&#9986; slepte sem horní list (5000 m)</div>
+
+      <!-- 5 000 m (horní hrana tohoto listu) -->
+      <div class="tick">
+        <div class="tick-label">5 000</div>
+        <div class="tick-label-unit">m</div>
+        <div class="tick-500"></div>
+      </div>
+
+      <!-- 4 000 m -->
+      <div class="tick">
+        <div class="tick-label">4 000</div>
+        <div class="tick-label-unit">m</div>
+        <div class="tick-500"></div>
+        <!-- Mont Blanc 4810 m → 810/1000 × 65 = 52.7mm -->
+        <div class="tick-mark" style="bottom: 52.7mm;">
+          <div class="mark-dot bg-blue"></div>
+          <div>
+            <span class="mark-label">Mont Blanc</span>
+            <span class="mark-height">4 810 m</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 000 m -->
+      <div class="tick">
+        <div class="tick-label">3 000</div>
+        <div class="tick-label-unit">m</div>
+        <div class="tick-500"></div>
+      </div>
+
+      <!-- 2 000 m -->
+      <div class="tick">
+        <div class="tick-label">2 000</div>
+        <div class="tick-label-unit">m</div>
+        <div class="tick-500"></div>
+        <!-- Gerlach 2655 m → 655/1000 × 65 = 42.6mm -->
+        <div class="tick-mark" style="bottom: 42.6mm;">
+          <div class="mark-dot bg-brown"></div>
+          <div>
+            <span class="mark-label">Gerlachovský štít</span>
+            <span class="mark-height">2 655 m</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1 000 m -->
+      <div class="tick">
+        <div class="tick-label">1 000</div>
+        <div class="tick-label-unit">m</div>
+        <div class="tick-500"></div>
+        <!-- Lysá hora 1324 m → 324/1000 × 65 = 21.1mm -->
+        <div class="tick-mark" style="bottom: 21.1mm;">
+          <div class="mark-dot bg-dark-green"></div>
+          <div>
+            <span class="mark-label">Lysá hora</span>
+            <span class="mark-height">1 324 m</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 0 m — plnohodnotný tick jako ostatní -->
+      <div class="tick">
+        <div class="tick-label">0</div>
+        <div class="tick-label-unit">m n. m.</div>
+        <div class="tick-500"></div>
+        <div class="tick-mark" style="bottom: 1mm; left: 20mm;">
+          <div class="mark-dot bg-green" style="width:5mm;height:5mm;"></div>
+          <div><span class="mark-label">Strom 10 m</span></div>
+        </div>
+        <div class="tick-mark" style="bottom: 1mm; left: 100mm;">
+          <div class="mark-dot bg-gray" style="width:5mm;height:5mm;"></div>
+          <div><span class="mark-label">Panelák 30 m</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

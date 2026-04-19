@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Kartičky pohoří — Montessori hory</title>
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    @media print {
+      @page { size: A4 landscape; margin: 0; }
+    }
+
+    .page-landscape {
+      width: 297mm;
+      height: 210mm;
+      display: grid;
+      grid-template-columns: 148.5mm 148.5mm;
+      grid-template-rows: 105mm 105mm;
+      page-break-after: always;
+      overflow: hidden;
+    }
+    .page-landscape:last-of-type { page-break-after: auto; }
+
+    @media screen {
+      .page-landscape {
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      }
+    }
+
+    .card-l {
+      width: 148.5mm;
+      height: 105mm;
+      border: 0.3mm dashed #ccc;
+      border-radius: 5mm;
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+      font-family: 'Quicksand', 'Nunito', Verdana, Arial, sans-serif;
+      padding: 0;
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
+    @media print { .card-l { border: none; } }
+
+    .card-l .photo {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .card-l .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .card-l .info {
+      background: #fff;
+      padding: 3mm 4mm 4mm;
+      text-align: center;
+    }
+    .card-l .info .name {
+      font-size: 8mm;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5mm;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STRANA 1: 4 kartičky pohoří (landscape) -->
+  <div class="page-landscape">
+
+    <div class="card-l">
+      <div class="photo">
+        <img src="https://www.ck-rekrea.cz/katalogy-data/images/atrakce/200/lysa_hora.jpg" alt="Beskydy">
+      </div>
+      <div class="info">
+        <div class="name">Beskydy</div>
+      </div>
+    </div>
+
+    <div class="card-l">
+      <div class="photo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Vysok%C3%A9_Tatry%2C_Nov%C3%A9_%C5%A0trbsk%C3%A9_pleso.JPG/960px-Vysok%C3%A9_Tatry%2C_Nov%C3%A9_%C5%A0trbsk%C3%A9_pleso.JPG" alt="Vysoké Tatry">
+      </div>
+      <div class="info">
+        <div class="name">Vysoké Tatry</div>
+      </div>
+    </div>
+
+    <div class="card-l">
+      <div class="photo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Mastl%C3%A9_Odles_Stevia.jpg/960px-Mastl%C3%A9_Odles_Stevia.jpg" alt="Alpy">
+      </div>
+      <div class="info">
+        <div class="name">Alpy</div>
+      </div>
+    </div>
+
+    <div class="card-l">
+      <div class="photo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Everest%2C_Nuptse%2C_Khumbu_Glacier%2C_Nepal%2C_Himalayas.jpg/960px-Everest%2C_Nuptse%2C_Khumbu_Glacier%2C_Nepal%2C_Himalayas.jpg" alt="Himálaj">
+      </div>
+      <div class="info">
+        <div class="name">Himálaj</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STRANA 2: 4 štítky na kamínky -->
+  <div class="tag-grid">
+    <div class="tag">Beskydy</div>
+    <div class="tag">Vysoké Tatry</div>
+    <div class="tag">Alpy</div>
+    <div class="tag">Himálaj</div>
+  </div>
+
+</body>
+</html>

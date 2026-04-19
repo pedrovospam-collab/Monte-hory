@@ -1,18 +1,17 @@
 # Tři pravidla a turistické značky (Blok 3c)
 
 Sada obsahuje:
-- **3 kartičky pravidel** (A6 na výšku)
-- **3 kartičky turistických značek** (A6 na výšku)
-- **4 kartičky „co potkáš na horách"** (A6 na výšku)
+- **3 kartičky pravidel** (A6 na šířku) — reálné fotografie
+- **3 kartičky turistických značek** (A6 na šířku) — barevné pruhy (CSS)
+- **4 kartičky „co potkáš na horách"** (A6 na šířku) — reálné fotografie
 
 ---
 
 ## 3 pravidla
 
 ### Pravidlo 1 — Chodím po cestě
-- **Piktogram:** silueta postavy kráčející po cestičce. Na cestě je **pomyslná červená značka** (turistický pruh).
+- **Fotografie:** reálná horská cesta/stezka v přírodě.
 - **Nápis:** `CHODÍM PO CESTĚ`
-- **Barva piktogramu:** tmavě hnědá postava, zelená louka, červený pruh.
 
 ### Pravidlo 2 — Nekrmím zvířata
 - **Piktogram:** ruka s jídlem (rohlík, svačina), **přeškrtnutá červeným kruhem** s diagonální čarou (zákaz). Vedle může být malá silueta zvířete (např. svišť).

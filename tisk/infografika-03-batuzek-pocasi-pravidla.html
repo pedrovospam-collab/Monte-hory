@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Infografika 3 — Baťůžek, počasí, pravidla</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Quicksand', Verdana, sans-serif; }
+
+    @media print {
+      @page { size: 420mm 594mm; margin: 0; }
+      body { margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    @media screen {
+      body { background: #e0e0e0; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+    }
+
+    .poster {
+      width: 420mm;
+      height: 594mm;
+      background: #fff;
+      padding: 12mm 15mm;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    @media screen {
+      .poster { box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+    }
+
+    .section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 8mm 5mm;
+    }
+    .section:nth-child(2) { background: #fafafa; }
+
+    .section-title {
+      text-align: center;
+      font-size: 12mm;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8mm;
+      color: #222;
+      padding-bottom: 6mm;
+    }
+
+    .section-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6mm;
+    }
+
+    /* Baťůžek section - icons in grid */
+    .backpack-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5mm;
+      width: 100%;
+    }
+
+    .backpack-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3mm;
+    }
+    .backpack-item svg {
+      width: 40mm;
+      height: 40mm;
+    }
+    .backpack-item .item-name {
+      font-size: 5.5mm;
+      font-weight: 700;
+      color: #333;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* Počasí section - 4 photos in row */
+    .weather-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5mm;
+      width: 100%;
+    }
+
+    .weather-item {
+      display: flex;
+      flex-direction: column;
+      border-radius: 4mm;
+      overflow: hidden;
+      border: 0.3mm solid #e0e0e0;
+    }
+    .weather-item .photo {
+      height: 45mm;
+      overflow: hidden;
+    }
+    .weather-item .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .weather-item .w-info {
+      padding: 2.5mm 2mm;
+      text-align: center;
+      background: #fff;
+    }
+    .weather-item .w-name {
+      font-size: 5.5mm;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #222;
+    }
+    .weather-item .w-tip {
+      font-size: 4mm;
+      font-weight: 500;
+      color: #888;
+      margin-top: 1mm;
+    }
+
+    /* Pravidla section - 3 photos in row */
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6mm;
+      width: 100%;
+    }
+
+    .rule-item {
+      display: flex;
+      flex-direction: column;
+      border-radius: 4mm;
+      overflow: hidden;
+      border: 0.3mm solid #e0e0e0;
+    }
+    .rule-item .photo {
+      height: 50mm;
+      overflow: hidden;
+    }
+    .rule-item .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .rule-item .r-info {
+      padding: 3mm 2mm;
+      text-align: center;
+      background: #fff;
+    }
+    .rule-item .r-name {
+      font-size: 5.5mm;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="poster">
+
+    <!-- SEKCE A: Do batohu -->
+    <div class="section">
+      <div class="section-title">Do batohu</div>
+      <div class="section-content">
+        <div class="backpack-grid">
+
+          <div class="backpack-item">
+            <svg viewBox="0 0 100 100"><ellipse cx="50" cy="70" rx="18" ry="25" fill="#2196f3" stroke="#1565c0" stroke-width="2"/><rect x="44" y="18" width="12" height="15" rx="3" fill="#1565c0"/><rect x="40" y="30" width="20" height="5" rx="2" fill="#1565c0"/></svg>
+            <span class="item-name">Lahev s vodou</span>
+          </div>
+
+          <div class="backpack-item">
+            <svg viewBox="0 0 100 100"><rect x="20" y="30" width="60" height="45" rx="5" fill="#8bc34a" stroke="#558b2f" stroke-width="2"/><rect x="25" y="35" width="50" height="35" rx="3" fill="#c5e1a5"/><circle cx="45" cy="52" r="8" fill="#ef6c00"/><circle cx="60" cy="48" r="5" fill="#e53935"/><rect x="35" y="58" width="20" height="8" rx="2" fill="#fdd835"/></svg>
+            <span class="item-name">Svačina</span>
+          </div>
+
+          <div class="backpack-item">
+            <svg viewBox="0 0 100 100"><path d="M25 75 Q25 35 50 25 Q75 35 75 75 Z" fill="#ffc107" stroke="#f57f17" stroke-width="2"/><rect x="30" y="68" width="40" height="10" rx="2" fill="#f57f17"/></svg>
+            <span class="item-name">Pláštěnka</span>
+          </div>
+
+          <div class="backpack-item">
+            <svg viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="28" ry="20" fill="#e53935"/><rect x="25" y="60" width="50" height="8" rx="2" fill="#b71c1c"/><rect x="40" y="42" width="20" height="8" rx="2" fill="#fff"/></svg>
+            <span class="item-name">Čepice</span>
+          </div>
+
+          <div class="backpack-item">
+            <svg viewBox="0 0 100 100"><rect x="30" y="35" width="40" height="45" rx="5" fill="#333"/><circle cx="50" cy="42" r="8" fill="#ffc107" stroke="#f57f17" stroke-width="2"/><rect x="45" y="50" width="10" height="25" rx="2" fill="#555"/><rect x="38" y="28" width="24" height="10" rx="3" fill="#444"/></svg>
+            <span class="item-name">Čelovka</span>
+          </div>
+
+          <div class="backpack-item">
+            <svg viewBox="0 0 100 100"><rect x="25" y="30" width="50" height="40" rx="5" fill="#fff" stroke="#e53935" stroke-width="3"/><rect x="43" y="38" width="14" height="24" rx="1" fill="#e53935"/><rect x="36" y="45" width="28" height="10" rx="1" fill="#e53935"/></svg>
+            <span class="item-name">Lékárnička</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- SEKCE B: Počasí -->
+    <div class="section">
+      <div class="section-title">Počasí</div>
+      <div class="section-content">
+        <div class="weather-grid">
+
+          <div class="weather-item">
+            <div class="photo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Blue_sky_clouds_and_mountains.jpg/960px-Blue_sky_clouds_and_mountains.jpg" alt="Slunce">
+            </div>
+            <div class="w-info">
+              <div class="w-name">Slunce</div>
+              <div class="w-tip">Pít</div>
+            </div>
+          </div>
+
+          <div class="weather-item">
+            <div class="photo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Dark_blue_clouds_and_rain_around_mountain_valleys_%28India%2C_2017%29.jpg/960px-Dark_blue_clouds_and_rain_around_mountain_valleys_%28India%2C_2017%29.jpg" alt="Déšť">
+            </div>
+            <div class="w-info">
+              <div class="w-name">Déšť</div>
+              <div class="w-tip">Pláštěnka</div>
+            </div>
+          </div>
+
+          <div class="weather-item">
+            <div class="photo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Lightning_over_Cacapon_Mountain_in_West_Virginia_Skies_2.JPG/960px-Lightning_over_Cacapon_Mountain_in_West_Virginia_Skies_2.JPG" alt="Bouřka">
+            </div>
+            <div class="w-info">
+              <div class="w-name">Bouřka</div>
+              <div class="w-tip">Schovat</div>
+            </div>
+          </div>
+
+          <div class="weather-item">
+            <div class="photo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Vitosha_Mountains_in_fog.jpg/960px-Vitosha_Mountains_in_fog.jpg" alt="Mlha">
+            </div>
+            <div class="w-info">
+              <div class="w-name">Mlha</div>
+              <div class="w-tip">Cesta</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- SEKCE C: Pravidla -->
+    <div class="section">
+      <div class="section-title">Pravidla</div>
+      <div class="section-content">
+        <div class="rules-grid">
+
+          <div class="rule-item">
+            <div class="photo">
+              <img src="https://1884403144.rsc.cdn77.org/foto/korsika-gr20/Njg4eDM4Ny9zbWFydC9pbWc/6149880.jpg?v=0&st=n1SPXHGmvPgcGKlT3xWvPjMJuJTeIKr7FaHW_SZs3ro&ts=1600812000&e=0" alt="Cesta">
+            </div>
+            <div class="r-info">
+              <div class="r-name">Cesta</div>
+            </div>
+          </div>
+
+          <div class="rule-item">
+            <div class="photo">
+              <img src="https://www.shutterstock.com/image-vector/do-not-feed-bears-change-260nw-382913638.jpg" alt="Nekrmím">
+            </div>
+            <div class="r-info">
+              <div class="r-name">Nekrmím</div>
+            </div>
+          </div>
+
+          <div class="rule-item">
+            <div class="photo">
+              <img src="https://brnenskamama.cz/wp-content/uploads/2025/04/20250420_150818-1024x768.jpg" alt="Poslouchám">
+            </div>
+            <div class="r-info">
+              <div class="r-name">Poslouchám</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

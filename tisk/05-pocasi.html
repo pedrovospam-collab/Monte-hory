@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Kartičky počasí — Montessori hory</title>
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    @media print {
+      @page { size: A4 landscape; margin: 0; }
+    }
+
+    .page-landscape {
+      width: 297mm;
+      height: 210mm;
+      display: grid;
+      grid-template-columns: 148.5mm 148.5mm;
+      grid-template-rows: 105mm 105mm;
+      page-break-after: always;
+      overflow: hidden;
+    }
+    .page-landscape:last-of-type { page-break-after: auto; }
+
+    @media screen {
+      .page-landscape {
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      }
+    }
+
+    .card-l {
+      width: 148.5mm;
+      height: 105mm;
+      border: 0.3mm dashed #ccc;
+      border-radius: 5mm;
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+      font-family: 'Quicksand', 'Nunito', Verdana, Arial, sans-serif;
+      padding: 0;
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
+    @media print { .card-l { border: none; } }
+
+    .card-l .photo {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .card-l .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .card-l .info {
+      background: rgba(255,255,255,0.95);
+      padding: 2mm 4mm 3mm;
+      text-align: center;
+    }
+    .card-l .info .name {
+      font-size: 7mm;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3mm;
+      color: #222;
+    }
+
+    .card-l.back-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f5f5;
+      padding: 8mm;
+    }
+    .card-l.back-card .back-text {
+      font-size: 5.5mm;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.8;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STRANA 1: přední — 4 fotky počasí -->
+  <div class="page-landscape">
+
+    <div class="card-l">
+      <div class="photo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Blue_sky_clouds_and_mountains.jpg/960px-Blue_sky_clouds_and_mountains.jpg" alt="Slunce v horách — modré nebe, hory">
+      </div>
+      <div class="info"><div class="name">Slunce</div></div>
+    </div>
+
+    <div class="card-l">
+      <div class="photo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Dark_blue_clouds_and_rain_around_mountain_valleys_%28India%2C_2017%29.jpg/960px-Dark_blue_clouds_and_rain_around_mountain_valleys_%28India%2C_2017%29.jpg" alt="Déšť v horách — tmavé mraky, déšť">
+      </div>
+      <div class="info"><div class="name">Déšť</div></div>
+    </div>
+
+    <div class="card-l">
+      <div class="photo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Lightning_over_Cacapon_Mountain_in_West_Virginia_Skies_2.JPG/960px-Lightning_over_Cacapon_Mountain_in_West_Virginia_Skies_2.JPG" alt="Bouřka v horách — blesky nad horou">
+      </div>
+      <div class="info"><div class="name">Bouřka</div></div>
+    </div>
+
+    <div class="card-l">
+      <div class="photo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Vitosha_Mountains_in_fog.jpg/960px-Vitosha_Mountains_in_fog.jpg" alt="Mlha v horách — hory zahalené mlhou">
+      </div>
+      <div class="info"><div class="name">Mlha</div></div>
+    </div>
+
+  </div>
+
+  <!-- STRANA 2: zadní — texty pro průvodce -->
+  <div class="page-landscape">
+
+    <div class="card-l back-card">
+      <div class="back-text">SLUNCE<br><br>Kšiltovka, krém, pít.</div>
+    </div>
+
+    <div class="card-l back-card">
+      <div class="back-text">DÉŠŤ<br><br>Pláštěnka.</div>
+    </div>
+
+    <div class="card-l back-card">
+      <div class="back-text">BOUŘKA<br><br>Slezu pod vrchol.<br>Ne pod strom.</div>
+    </div>
+
+    <div class="card-l back-card">
+      <div class="back-text">MLHA<br><br>Držím se cesty.</div>
+    </div>
+
+  </div>
+
+</body>
+</html>

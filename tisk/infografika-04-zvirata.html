@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Infografika 4 — Kdo žije v horách</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Quicksand', Verdana, sans-serif; }
+
+    @media print {
+      @page { size: 594mm 420mm; margin: 0; }
+      body { margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    @media screen {
+      body { background: #e0e0e0; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+    }
+
+    .poster {
+      width: 594mm;
+      height: 420mm;
+      background: #fff;
+      padding: 15mm 20mm;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media screen {
+      .poster { box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+    }
+
+    .title {
+      text-align: center;
+      font-size: 18mm;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1mm;
+      color: #222;
+      padding-bottom: 10mm;
+    }
+
+    .grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8mm;
+    }
+
+    .animal-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 5mm;
+      overflow: hidden;
+      border: 0.5mm solid #e0e0e0;
+    }
+
+    .animal-card .photo {
+      flex: 1;
+      overflow: hidden;
+    }
+    .animal-card .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .animal-card .info {
+      background: #fff;
+      padding: 5mm 4mm;
+      text-align: center;
+    }
+    .animal-card .info .name {
+      font-size: 9mm;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5mm;
+      color: #222;
+    }
+    .animal-card .info .habitat {
+      font-size: 5mm;
+      font-weight: 500;
+      color: #888;
+      margin-top: 2mm;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="poster">
+    <div class="title">Kdo žije v horách</div>
+
+    <div class="grid">
+
+      <div class="animal-card">
+        <div class="photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Capreolus_capreolus_2_Jojo.jpg/960px-Capreolus_capreolus_2_Jojo.jpg" alt="Srnka" style="object-position: 64% center;">
+        </div>
+        <div class="info">
+          <div class="name">Srnka</div>
+          <div class="habitat">Beskydy</div>
+        </div>
+      </div>
+
+      <div class="animal-card">
+        <div class="photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Marmota_marmota_Alpes2.jpg" alt="Svišť" style="object-position: 77% center;">
+        </div>
+        <div class="info">
+          <div class="name">Svišť</div>
+          <div class="habitat">Tatry · Alpy</div>
+        </div>
+      </div>
+
+      <div class="animal-card">
+        <div class="photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_%28Switzerland%29_Photo_by_Giles_Laurent.jpg/960px-016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_%28Switzerland%29_Photo_by_Giles_Laurent.jpg" alt="Orel skalní">
+        </div>
+        <div class="info">
+          <div class="name">Orel skalní</div>
+          <div class="habitat">Beskydy · Tatry · Alpy</div>
+        </div>
+      </div>
+
+      <div class="animal-card">
+        <div class="photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Bos_grunniens_at_Yundrok_Yumtso_Lake.jpg/960px-Bos_grunniens_at_Yundrok_Yumtso_Lake.jpg" alt="Jak" style="object-position: 78% center;">
+        </div>
+        <div class="info">
+          <div class="name">Jak</div>
+          <div class="habitat">Himálaj</div>
+        </div>
+      </div>
+
+      <div class="animal-card">
+        <div class="photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Snow_Leopard_Running_%2827790729228%29.jpg/960px-Snow_Leopard_Running_%2827790729228%29.jpg" alt="Sněžný leopard" style="object-position: 55% center;">
+        </div>
+        <div class="info">
+          <div class="name">Sněžný leopard</div>
+          <div class="habitat">Himálaj</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,15 +1,14 @@
-# Piktogramy počasí (Blok 3b)
+# Kartičky počasí (Blok 3b)
 
-4 kartičky A6 na výšku, jednoduché piktogramy, žádný text dětem (název jen pro tvou orientaci na zadní straně).
+4 kartičky A6 na šířku (landscape), **reálné fotografie** horského počasí. Název počasí je na přední straně pod fotkou, text pro průvodce na zadní straně.
 
 ---
 
-## Princip piktogramu
+## Princip kartičky
 
-- **Velký centrální symbol** (zabírá 70 % plochy).
-- **Jasná, jednoduchá ikona** – žádné detaily, žádný smajlík na slunci.
-- **Barva odlišená** pro každé počasí (pomáhá rychlému rozpoznání).
-- **Bílé pozadí.**
+- **Reálná fotografie** ukazující dané počasí v horách (zabírá většinu plochy).
+- **Název počasí** pod fotkou, velké bezpatkové písmo.
+- **Zadní strana:** stručný text pro průvodce — co dělat při daném počasí.
 
 ---
 

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Pravidla a značky — Montessori hory</title>
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    @media print {
+      @page { size: A4 landscape; margin: 0; }
+    }
+
+    .page-landscape {
+      width: 297mm;
+      height: 210mm;
+      display: grid;
+      grid-template-columns: 148.5mm 148.5mm;
+      grid-template-rows: 105mm 105mm;
+      page-break-after: always;
+      overflow: hidden;
+    }
+    .page-landscape:last-of-type { page-break-after: auto; }
+
+    @media screen {
+      .page-landscape {
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      }
+    }
+
+    .card-l {
+      width: 148.5mm;
+      height: 105mm;
+      border: 0.3mm dashed #ccc;
+      border-radius: 5mm;
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+      font-family: 'Quicksand', 'Nunito', Verdana, Arial, sans-serif;
+      padding: 0;
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
+    @media print { .card-l { border: none; } }
+
+    .card-l .photo {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .card-l .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .card-l .info {
+      background: rgba(255,255,255,0.95);
+      padding: 2mm 4mm 3mm;
+      text-align: center;
+    }
+    .card-l .info .name {
+      font-size: 6mm;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3mm;
+      color: #222;
+    }
+
+    /* Turistické značky — CSS pruhy */
+    .card-l.sign-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5mm;
+      padding: 10mm;
+    }
+    .trail-sign {
+      width: 80mm;
+      height: 55mm;
+      display: flex;
+      flex-direction: column;
+    }
+    .trail-sign .stripe { flex: 1; }
+    .trail-sign .stripe.white { background: #fff; border: 0.3mm solid #ddd; }
+    .trail-sign .stripe.red { background: #e30613; }
+    .trail-sign .stripe.blue { background: #0072bc; }
+    .trail-sign .stripe.green { background: #00a651; }
+    .trail-sign .stripe.yellow { background: #ffc800; }
+    .sign-label {
+      font-size: 7mm;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STRANA 1: 3 pravidla + 1 prázdná -->
+  <div class="page-landscape">
+
+    <!-- Chodím po cestě -->
+    <div class="card-l">
+      <div class="photo">
+        <img src="https://1884403144.rsc.cdn77.org/foto/korsika-gr20/Njg4eDM4Ny9zbWFydC9pbWc/6149880.jpg?v=0&st=n1SPXHGmvPgcGKlT3xWvPjMJuJTeIKr7FaHW_SZs3ro&ts=1600812000&e=0" alt="Horská cesta">
+      </div>
+      <div class="info"><div class="name">Chodím po cestě</div></div>
+    </div>
+
+    <!-- Nekrmím zvířata -->
+    <div class="card-l">
+      <div class="photo">
+        <img src="https://www.shutterstock.com/image-vector/do-not-feed-bears-change-260nw-382913638.jpg" alt="Nekrmím zvířata">
+      </div>
+      <div class="info"><div class="name">Nekrmím zvířata</div></div>
+    </div>
+
+    <!-- Poslouchám dospělého -->
+    <div class="card-l">
+      <div class="photo">
+        <img src="https://brnenskamama.cz/wp-content/uploads/2025/04/20250420_150818-1024x768.jpg" alt="Dospělý s dětmi na horách">
+      </div>
+      <div class="info"><div class="name">Poslouchám dospělého</div></div>
+    </div>
+
+    <div class="card-l" style="border: none;"></div>
+  </div>
+
+  <!-- STRANA 2: 4 turistické značky -->
+  <div class="page-landscape">
+
+    <div class="card-l sign-card">
+      <div class="trail-sign">
+        <div class="stripe white"></div>
+        <div class="stripe red"></div>
+        <div class="stripe white"></div>
+      </div>
+      <div class="sign-label">Červená</div>
+    </div>
+
+    <div class="card-l sign-card">
+      <div class="trail-sign">
+        <div class="stripe white"></div>
+        <div class="stripe blue"></div>
+        <div class="stripe white"></div>
+      </div>
+      <div class="sign-label">Modrá</div>
+    </div>
+
+    <div class="card-l sign-card">
+      <div class="trail-sign">
+        <div class="stripe white"></div>
+        <div class="stripe green"></div>
+        <div class="stripe white"></div>
+      </div>
+      <div class="sign-label">Zelená</div>
+    </div>
+
+    <div class="card-l sign-card">
+      <div class="trail-sign">
+        <div class="stripe white"></div>
+        <div class="stripe yellow"></div>
+        <div class="stripe white"></div>
+      </div>
+      <div class="sign-label">Žlutá</div>
+    </div>
+
+  </div>
+
+  <!-- STRANA 3: 4× co potkáš na horách -->
+  <div class="page-landscape">
+
+    <!-- Rozcestník -->
+    <div class="card-l">
+      <div class="photo">
+        <img src="https://www.ceskehory.cz/profil/users/foto/33220.jpg" alt="Rozcestník">
+      </div>
+      <div class="info"><div class="name">Rozcestník</div></div>
+    </div>
+
+    <!-- Chata -->
+    <div class="card-l">
+      <div class="photo">
+        <img src="https://cdn.bookatrekking.com/data/images/2024/11/rifugio-agostini.webp" alt="Horská chata">
+      </div>
+      <div class="info"><div class="name">Chata</div></div>
+    </div>
+
+    <!-- Pastýř s ovcemi -->
+    <div class="card-l">
+      <div class="photo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Cows_in_the_Swiss_Alps.jpg/960px-Cows_in_the_Swiss_Alps.jpg" alt="Pasoucí se krávy v horách">
+      </div>
+      <div class="info"><div class="name">Pasoucí se krávy</div></div>
+    </div>
+
+    <!-- Horská služba -->
+    <div class="card-l">
+      <div class="photo">
+        <img src="https://vesluzbehoram.cz/wp-content/uploads/2025/09/horska-10.jpg" alt="Horská služba ČR">
+      </div>
+      <div class="info"><div class="name">Horská služba</div></div>
+    </div>
+
+  </div>
+
+</body>
+</html>
